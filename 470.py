@@ -2,6 +2,7 @@ from flask import Flask, render_template,url_for, request, redirect, jsonify
 import requests
 import json
 import csv
+import pandas as pd
 print("Running")
 app = Flask(__name__)
 #change these w/ your file name
@@ -32,6 +33,16 @@ def printData(name):
 listOfData = ["name.basics.tsv","title.basics.tsv","title.ratings.tsv","title.crew.tsv"]
 for title in listOfData:
     printData(title)
+
+
+def printDataFrame(name):
+    print(name)
+    title = open(name,'r', encoding='utf-8')
+    read_tsv = pd.read_csv(title, sep="\t",header=0,dtype=str)
+    print(read_tsv.head())
+
+for title in listOfData:
+    printDataFrame(title)
 
 @app.route("/")
 def index():
