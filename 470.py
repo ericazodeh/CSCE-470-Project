@@ -5,57 +5,45 @@ import csv
 import pandas as pd
 print("Running")
 app = Flask(__name__)
-#change these w/ your file name
-nameBasics = open("name.basics.tsv")
-titleBasics = open("title.basics.tsv")
-titleRatings = open("title.ratings.tsv")
-titleCrew = open("title.crew.tsv")
+titleBasics = pd.read_csv("title.basics.tsv", sep="\t",header=0,dtype=str)
+titleRatings = pd.read_csv("title.ratings.tsv", sep="\t",header=0,dtype=str)
+titleCrew = pd.read_csv("title.crew.tsv", sep="\t",header=0,dtype=str)
+titleName = pd.read_csv("name.basics.tsv", sep="\t",header=0,dtype=str)
+@app.route("/<name>")
+def index(name):
+    #print(name)
+    
+    
 
+    
+    print(titleBasics.head())
+    print(titleRatings.head())
 
-def printData(name):
-    #open file
-    title = open(name)
-    read_tsv = csv.reader(title, delimiter="\t")
-    i = 0
-    #print file name 1st
-    print(name)
-    for row in read_tsv:
-        #only show the 1st 5 lines
-        if i == 5:
-            break
-        i+=1
-        print(row)
-    print()
+    
+    row = titleBasics.loc[titleBasics['originalTitle'] == name]
 
+    rowId = row["tconst"].values.astype('str')[0]
 
+    row2 = titleRatings.loc[titleRatings['tconst'] == rowId]
+    row3 = titleCrew.loc[titleCrew['tconst'] == rowId]
+    print (row2)
+    averageRating =row2.iloc[0,1]
+    numVotes =row2.iloc[0,2]
+    print (averageRating)
+    print (numVotes)
+    print (row3)
+    nameId =row3.iloc[0,1]
+    row4 = titleName.loc[titleName['nconst'] == nameId]
+    directorsName = row4.iloc[0,1]
+    print(directorsName)
+    
+    stringTest = "Title: " + name +"<br>" + "Rating: " + averageRating + "<br>" + "Number of Votes: " + numVotes + "<br>" + "Directors Name: " + directorsName+ "<br>"
+    return stringTest
+    
+ 
 
-#do this for all files
-listOfData = ["name.basics.tsv","title.basics.tsv","title.ratings.tsv","title.crew.tsv"]
-for title in listOfData:
-    printData(title)
-
-
-def printDataFrame(name):
-    print(name)
-    title = open(name,'r', encoding='utf-8')
-    read_tsv = pd.read_csv(title, sep="\t",header=0,dtype=str)
-    print(read_tsv.head())
-
-for title in listOfData:
-    printDataFrame(title)
-
-@app.route("/")
-def index():
-    tsv_file = open("data.tsv")
-    read_tsv = csv.reader(tsv_file, delimiter="\t")
-    i = 0
-    rows = []
-    for row in read_tsv:
-        rows.append(row)
-
-    return rows[5][0]
 
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)
