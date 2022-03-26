@@ -2,7 +2,7 @@
 README:
 To run the project, you will need to have 4 IMDB datasets installed on your local computer"
 1. Go to https://datasets.imdbws.com/
-2. download and unzip: name.basics.tsv.gz, title.basics.tsv.gz, title.crew.tsv.gz, and title.ratings.tsv.gz 
+2. download and unzip: 'name.basics.tsv.gz', 'title.basics.tsv.gz', 'title.crew.tsv.gz', and 'title.ratings.tsv.gz' 
 3. Download the 470.py file, and make sure the 5 total files are in the same directory
 4. Run 'pip install Flask requests' inside of the terminal
 5. Run '470.py' to start the server at your localhost
