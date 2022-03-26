@@ -4,6 +4,34 @@ import json
 import csv
 print("Running")
 app = Flask(__name__)
+#change these w/ your file name
+nameBasics = open("name.basics.tsv")
+titleBasics = open("title.basics.tsv")
+titleRatings = open("title.ratings.tsv")
+titleCrew = open("title.crew.tsv")
+
+
+def printData(name):
+    #open file
+    title = open(name)
+    read_tsv = csv.reader(title, delimiter="\t")
+    i = 0
+    #print file name 1st
+    print(name)
+    for row in read_tsv:
+        #only show the 1st 5 lines
+        if i == 5:
+            break
+        i+=1
+        print(row)
+    print()
+
+
+
+#do this for all files
+listOfData = ["name.basics.tsv","title.basics.tsv","title.ratings.tsv","title.crew.tsv"]
+for title in listOfData:
+    printData(title)
 
 @app.route("/")
 def index():
