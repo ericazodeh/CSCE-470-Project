@@ -15,6 +15,9 @@ with open('data/training_pkl', 'rb') as f:
 with open('data/word_bank_pkl', 'rb') as f:
     Words= pickle.load(f)
 
+with open('data/dataset_pkl', 'rb') as f:
+    dataset= pickle.load(f)
+
 
 @app.route("/")
 def index():
@@ -36,7 +39,7 @@ def pickMovies():
         "fifth" : {"" : 0.0}
     }
     firstMovie = secondMovie = thirdMovie = fourthMovie = fifthMovie = "No movie prediction"
-    for movie, value in sorted(movies.items(), key = lambda x: x[1]):
+    for movie, value in sorted(movies.items(), key = lambda x: x[1],reverse=True):
         if i == 1:
             #moviePicks["first"] = {movie : value}
             firstMovie = movie
@@ -58,9 +61,17 @@ def pickMovies():
     hi = "hi"
     return render_template("movies.html",movies = movies, firstMovie=firstMovie, secondMovie = secondMovie,thirdMovie = thirdMovie,fourthMovie = fourthMovie, fifthMovie = fifthMovie)
 
-@app.route('/movies', methods=['POST'])
-def getMovieInfo():
-    return "This part is not done yet"
+@app.route('/movies', methods=['GET', 'POST'])
+def movies():
+    movie_title = request.args.get('type')
+    movie_info=dataset.loc[dataset['primaryTitle']==movie_title,['primaryTitle','startYear','genres','averageRating','numVotes','primaryName']]
+    Name= movie_info['primaryTitle'].values[0]
+    Year = movie_info['startYear'].values[0]
+    Genres= movie_info['genres'].values[0]
+    Director= movie_info['primaryName'].values[0]
+    Rating= movie_info['averageRating'].values[0]
+    Votes= movie_info['numVotes'].values[0]
+    return render_template("movie_info.html", Name = Name, Year=Year, Genres = Genres,Director=Director,Rating=Rating,Votes=Votes)
 
 
 

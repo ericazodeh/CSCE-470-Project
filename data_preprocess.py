@@ -1,5 +1,5 @@
 import pandas as pd
-
+import pickle
 
 
 titleBasics = pd.read_csv("data/title.basics.tsv", sep="\t",header=0,dtype=str)
@@ -18,6 +18,9 @@ for i in range(len(total_data)):
     else:
         name.append(str(total_data.iloc[i]['primaryTitle']) +" "+ str(total_data.iloc[i]['originalTitle']))
 total_data['name']=name
+
+with open('data/dataset_pkl', 'wb') as f:
+     pickle.dump(total_data, f)
 
 
 

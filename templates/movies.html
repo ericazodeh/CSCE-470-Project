@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Title of the document</title>
+<title>Title of the Movies</title>
 </head>
 
 <body>
 <center>
-<h3>Predicted Movies:</h3> 
-<li>{{ firstMovie }} {{movies[firstMovie]}}%</li>
-<li>{{ secondMovie }} {{movies[secondMovie]}}%</li>
-<li>{{ thirdMovie }} {{movies[thirdMovie]}}%</li>
-<li>{{ fourthMovie }} {{movies[fourthMovie]}}%</li>
-<li>{{ fifthMovie }} {{movies[fifthMovie]}}%</li>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
+        <th scope="col">Movie Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <th scope="row"> </th>
+        <td><A HREF = "{{ url_for('movies',type=firstMovie) }}">{{ firstMovie }}</A></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <th scope="row"> </th>
+        <td><A HREF = "{{ url_for('movies',type=secondMovie) }}">{{ secondMovie }}</A></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <th scope="row"> </th>
+        <td><A HREF = "{{ url_for('movies',type=thirdMovie) }}">{{ thirdMovie }}  </A></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <th scope="row"> </th>
+        <td><A HREF = "{{ url_for('movies',type=fourthMovie) }}">{{ fourthMovie }}  </A></td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <th scope="row"> </th>
+        <td><A HREF = "{{ url_for('movies',type=fifthMovie) }}">{{ fifthMovie }}  </A></td>
+      </tr>
+    </tbody>
+  </table>
 </center>
 
-<center>
+<!-- <center>
     <h3>Get director information from these movies (copy & paste a movie name into here)</h3>
     <form method="POST">
         <input name="text">
         <input type="submit">
     </form>
-</center>
+</center> -->
 <script>
     //alert('{{ firstMovie }}');
     
