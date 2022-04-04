@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
+    
 <title></title>
-</head>
+<style>
+.column {
+  float: left;
+  width: 22.33%;
+  padding: 15px;
+}
 
-<body>
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+       
+         body {
+                    padding: 25px;
+                    background-color: white;
+                    color: black;
+                    font-size: 25px;
+                  }
+                  
+                  .dark-mode {
+                    background-color: black;
+                    color: white;
+                  }
+                  </style>  
+       
+      
+          </head>
+          <body BGCOLOR = "WHITE" TEXT = " BLACK">            
+
+             
+            <span style = "padding-left:400px"></span>Movie Night Fanatics</span>
+
+            <hr align="center" width="60%"> 
     <center>
     <h3>Select your movie here</h3>
     <form method="POST">
@@ -12,13 +46,45 @@
         <input type="submit">
     </form>
 </center>
+
+<div class="row">
+    <div class="column">
+      <img src="4.jpg"  style="width:100%">
+    </div>
+    <div class="column">
+      <img src="2.jpg"  style="width:100%">
+    </div>
+    <div class="column">
+        <img src="3.jpg" style="width:100%">
+    </div>
+    <div class="column">
+       <img src="5.jpg" style="width:100%">
+    </div>
+    <div class="column">
+       <img src="6.jpg" style="width:100%">
+    </div>
+    <div class="column">
+      <img src="7.jpg" style="width:100%">
+    </div>
+    <div class="column">
+       <img src="8.jpg" style="width:100%">
+    </div>
+    <div class="column">
+      <img src="9.jpg" style="width:100%">
+   </div>
+  
+
+<button onclick="mydarkmodeFunc()">Dark mode</button>
 <script>
     //alert('{{ firstMovie }}');
     
 	//alert('Hello, ' + name);
-    
+    function mydarkmodeFunc() {
+   var item = document.body;
+   item.classList.toggle("dark-mode");
+}
 
 </script>
-</body>
+
 
 </html>
