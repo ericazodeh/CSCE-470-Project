@@ -16,6 +16,33 @@
   clear: both;
   display: table;
 }
+ody{
+  margin:0;
+  padding: 0;
+  background: #ccc;
+
+}
+.nav ul {
+  list-style: none;
+  background: maroon;
+  text-align:center;
+  padding: 0;
+  margin: 0;
+
+}
+.nav li {
+  display:inline-block;
+}
+.nav a{
+  text-decoration: none;
+  color: #fff;
+  width: 50px;
+  display:block;
+  padding: 8px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.4s;;
+}
 
        
          body {
@@ -33,17 +60,29 @@
        
       
           </head>
-          <body BGCOLOR = "WHITE" TEXT = " BLACK">            
+          <body BGCOLOR = "WHITE" TEXT = " BLACK">    
+            <div class="nav">
+  
+                <ul>
+                  <tr>
+                    <td align="left"><h3><font color="white">Movie Night Fanatics</h1></font></h3></td>
+                  </tr>
+                  
+                  <li><a href="movies.html">Movies</a></li>
+                  <li><a href="movies_info.html">movies information</a></li>
+                 
+                </ul>
+              </div> 
+              
+              <span style = "padding-left:400px"></span></span>
 
-             
-            <span style = "padding-left:400px"></span>Movie Night Fanatics</span>
-
-            <hr align="center" width="60%"> 
+              <hr align="center" width="60%">         
+           
     <center>
-    <h3>Explore Movies</h3>
-    <form method="POST">
-        <input name="text">
-        <input type="submit", name="search", placeholder="What are you looking for?">
+        <h3>Explore Movies</h3>
+        <form method="POST">
+            <input name="text">
+            <input type="submit", name="search", placeholder="What are you looking for?">
     </form>
 </center>
 
