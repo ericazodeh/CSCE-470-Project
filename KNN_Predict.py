@@ -35,10 +35,8 @@ def predict(x,doc_vectors,word_bank):
     for k,v in sim_dict.items():
             if v != 0:
                 predicted[k]=v
-    if predicted=={}:
-        return "This Movie was not found!"
-    else:
-        return predicted
+    
+    return predicted
 
 
 

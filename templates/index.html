@@ -5,9 +5,10 @@
     
 <title></title>
 <style>
+
 .column {
   float: left;
-  width: 22.33%;
+  width: 22%;
   padding: 15px;
 }
 
@@ -16,7 +17,7 @@
   clear: both;
   display: table;
 }
-ody{
+body{
   margin:0;
   padding: 0;
   background: #ccc;
@@ -59,7 +60,7 @@ ody{
                   </style>  
        
       
-          </head>
+</head>
           <body BGCOLOR = "WHITE" TEXT = " BLACK">    
             <div class="nav">
   
@@ -78,40 +79,48 @@ ody{
 
               <hr align="center" width="60%">         
            
-    <center>
-        <h3>Explore Movies</h3>
-        <form method="POST">
+<center>
+    <h3>Explore Movies</h3>
+    <form method="POST">
             <input name="text">
             <input type="submit", name="search", placeholder="What are you looking for?">
     </form>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
 </center>
 
+
 <div class="row">
-    <div class="column">
-      <img src="Moviepictures//4.jpg"  style="width:100%">
-    </div>
-    <div class="column">
-      <img src="Moviepictures/2.jpg"  style="width:100%">
-    </div>
-    <div class="column">
-        <img src="Moviepictures/3.jpg" style="width:100%">
-    </div>
-    <div class="column">
-       <img src="Moviepictures/5.jpeg" style="width:100%">
-    </div>
-    <div class="column">
-       <img src=" Moviepictures/6.jpg" style="width:100%">
-    </div>
-    <div class="column">
-      <img src=" Moviepictures/7.jpg" style="width:100%">
-    </div>
-    <div class="column">
-       <img src=" Moviepictures/8.jpg" style="width:100%">
-    </div>
-    <div class="column">
-      <img src="Moviepictures/9.jpg" style="width:100%">
-   </div>
-  
+  <div class="column">
+    <img src="{{ url_for('static', filename='Moviepictures/' + image_names[0]) }}" ,width="100%", height="100%"  >
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='Moviepictures/' + image_names[1]) }}" ,width="100%", height="100%"  >
+  </div>
+  <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[2]) }}" ,width="100%",height="100%"  >
+  </div>
+  <div class="column">
+     <img src="{{ url_for('static', filename='Moviepictures/' + image_names[3]) }}" ,width="100%",height="100%" >
+  </div>
+  <div class="column">
+     <img src="{{ url_for('static', filename='Moviepictures/' + image_names[4]) }}" ,width="100%",height="100%"  >
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='Moviepictures/' + image_names[5]) }}" ,width="100%",height="100%" >
+  </div>
+  <div class="column">
+     <img src="{{ url_for('static', filename='Moviepictures/' + image_names[6]) }}" ,width="100%",height="100%" >
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='Moviepictures/' + image_names[7]) }}" , width="100%",height="100%"  >
+ </div>
+</div>
 
 <button onclick="mydarkmodeFunc()">Dark mode</button>
 <script>
@@ -125,5 +134,5 @@ ody{
 
 </script>
 
-
+</body>
 </html>

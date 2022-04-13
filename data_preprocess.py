@@ -18,7 +18,8 @@ for i in range(len(total_data)):
     else:
         name.append(str(total_data.iloc[i]['primaryTitle']) +" "+ str(total_data.iloc[i]['originalTitle']))
 total_data['name']=name
-
+# m=total_data.loc[total_data['primaryTitle']=="Procesión de las hijas de María de la parroquia de Sans"]
+# print(m)
 with open('data/dataset_pkl', 'wb') as f:
      pickle.dump(total_data, f)
 
