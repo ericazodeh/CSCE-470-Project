@@ -93,7 +93,7 @@ def movie_genre_info():
     genreTest= request.form['text2']
 
     try:
-        r1 = random.randint(0, 10) #TODO: output more than 1 random movie between 0-10
+        r1 = random.randint(0, 100) #TODO: output more than 1 random movie between 0-10
         movie_genre= genreTest
         movie_info=dataset.loc[dataset['genres']==movie_genre,['primaryTitle','startYear','genres','averageRating','numVotes','primaryName']]
         Name= movie_info['primaryTitle'].values[r1]
