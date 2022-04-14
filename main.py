@@ -5,6 +5,7 @@ import csv
 import KNN_Predict
 import pickle
 import os
+import random
 # import data_preprocess
 
 print("Running")
@@ -26,7 +27,7 @@ def index():
     return render_template("index.html",image_names=image_names)
 
 @app.route('/', methods=['GET','POST'])
-def pickMovies():
+def movies():
     
     textBoxInput = request.form['text']
     # Enter the query instead of "many years jerr"
@@ -69,7 +70,7 @@ def pickMovies():
         return render_template("movies.html",movies = movies, firstMovie=firstMovie, secondMovie = secondMovie,thirdMovie = thirdMovie,fourthMovie = fourthMovie, fifthMovie = fifthMovie)
 
 @app.route('/movies', methods=['GET', 'POST'])
-def movies():
+def movie_info():
     movie_title = request.args.get('type')
     movie_info=dataset.loc[dataset['primaryTitle']==movie_title,['primaryTitle','startYear','genres','averageRating','numVotes','primaryName']]
     Name= movie_info['primaryTitle'].values[0]
@@ -79,6 +80,35 @@ def movies():
     Rating= movie_info['averageRating'].values[0]
     Votes= movie_info['numVotes'].values[0]
     return render_template("movie_info.html", Name = Name, Year=Year, Genres = Genres,Director=Director,Rating=Rating,Votes=Votes)
+
+@app.route('/movie_genre')
+def movie_genre():
+            return render_template("movie_genre.html")
+  
+  
+   
+@app.route('/movie_genre', methods=['GET', 'POST'])
+def movie_genre_info():
+    #genreTest= "Horror"
+    genreTest= request.form['text2']
+
+    try:
+        r1 = random.randint(0, 10) #TODO: output more than 1 random movie between 0-10
+        movie_genre= genreTest
+        movie_info=dataset.loc[dataset['genres']==movie_genre,['primaryTitle','startYear','genres','averageRating','numVotes','primaryName']]
+        Name= movie_info['primaryTitle'].values[r1]
+        Year = movie_info['startYear'].values[r1]
+        Genres= movie_info['genres'].values[r1]
+        Director= movie_info['primaryName'].values[r1]
+        Rating= movie_info['averageRating'].values[r1]
+        Votes= movie_info['numVotes'].values[r1]
+
+        return render_template("movie_genre_info.html", Name = Name, Year=Year, Genres = Genres,Director=Director,Rating=Rating,Votes=Votes)
+    except: #Does not work for exception
+        message = Markup("<h1>'This Genre was not found!'</h1>")
+        flash(message)
+        return render_template("movie_genre.html")
+   
 
   
 

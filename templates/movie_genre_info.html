@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Information of the Movies</title>
+<title>Movie Genre</title>
 </head>
 
 <style>
@@ -41,7 +41,7 @@
            </tr>
            
            <li><a href="{{url_for('index')}}">Home</a></li>
-                <!--  <li><a href="{{url_for('movies')}}">Movies</a></li>
+                 <!-- <li><a href="{{url_for('movies')}}">Movies</a></li>
                   <li><a href="{{url_for('movie_info')}}">Movie Information</a></li> -->
                   <li><a href="{{url_for('movie_genre')}}">Movie Genre</a></li>
           
@@ -49,9 +49,10 @@
        </div> 
        
        <span style = "padding-left:400px"></span></span>
- 
+       <center><p5>{{Genres}}</p5></center>
        <hr align="center" width="60%">         
 <center>
+  
   <div class="container">
     <div class="row">
       <div class="col">
