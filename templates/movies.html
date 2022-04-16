@@ -51,9 +51,7 @@
       <span style = "padding-left:400px"></span></span>
 
       <hr align="center" width="60%">         
-   
       <center>
-
         <table class="table">
             <thead>
               <tr>
@@ -63,31 +61,41 @@
               </tr>
             </thead>
             <tbody>
+              {% if firstMovie !='None' %}
               <tr>
                 <th scope="row">1</th>
                 <th scope="row"> </th>
-                <td><A HREF = "{{ url_for('movies',type=firstMovie) }}">{{ firstMovie }}</A></td>
+                <td><A HREF = "{{ url_for('movie_info',type=firstMovie) }}">{{ firstMovie }}</A></td>
               </tr>
+              {% endif %}
+              {% if secondMovie !='None' %}
               <tr>
                 <th scope="row">2</th>
                 <th scope="row"> </th>
-                <td><A HREF = "{{ url_for('movies',type=secondMovie) }}">{{ secondMovie }}</A></td>
+                <td><A HREF = "{{ url_for('movie_info',type=secondMovie) }}">{{ secondMovie }}</A></td>
               </tr>
+              {% endif %}
+              {% if thirdMovie !='None' %}
               <tr>
                 <th scope="row">3</th>
                 <th scope="row"> </th>
-                <td><A HREF = "{{ url_for('movies',type=thirdMovie) }}">{{ thirdMovie }}  </A></td>
+                <td><A HREF = "{{ url_for('movie_info',type=thirdMovie) }}">{{ thirdMovie }}  </A></td>
               </tr>
+              {% endif %}
+              {% if fourthMovie !='None' %}
               <tr>
                 <th scope="row">4</th>
                 <th scope="row"> </th>
-                <td><A HREF = "{{ url_for('movies',type=fourthMovie) }}">{{ fourthMovie }}  </A></td>
+                <td><A HREF = "{{ url_for('movie_info',type=fourthMovie) }}">{{ fourthMovie }}  </A></td>
               </tr>
+              {% endif %}
+              {% if fifthMovie !='None' %}
               <tr>
                 <th scope="row">5</th>
                 <th scope="row"> </th>
-                <td><A HREF = "{{ url_for('movies',type=fifthMovie) }}">{{ fifthMovie }}  </A></td>
+                <td><A HREF = "{{ url_for('movie_info',type=fifthMovie) }}">{{ fifthMovie }}  </A></td>
               </tr>
+              {% endif %}
             </tbody>
           </table>
         </center>

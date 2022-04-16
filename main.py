@@ -8,18 +8,18 @@ import os
 import random
 # import data_preprocess
 
+
 print("Running")
 app = Flask(__name__)
 
-with open('data/training_pkl', 'rb') as f:
-        training_vectors= pickle.load(f)
-    
-with open('data/word_bank_pkl', 'rb') as f:
-    Words= pickle.load(f)
+with open('data/training_pkl', 'rb') as t:
+        training_vectors= pickle.load(t)
 
-with open('data/dataset_pkl', 'rb') as f:
-    dataset= pickle.load(f)
+with open('data/word_bank_pkl', 'rb') as w:
+    Words= pickle.load(w)
 
+with open('data/dataset_pkl', 'rb') as d:
+    dataset= pickle.load(d)
 
 @app.route("/")
 def index():
@@ -33,10 +33,11 @@ def movies():
     # Enter the query instead of "many years jerr"
     movies=KNN_Predict.predict(textBoxInput,training_vectors,Words)
     #return render_template("index.html")
-    if movies=={}:
-        message = Markup("<h1>'This Movie was not found!'</h1>")
+    if len(movies)==0:
+        message = Markup("<h1>This Movie was not found!</h1>")
         flash(message)
-        return render_template("index.html")
+        image_names = os.listdir('static\Moviepictures')
+        return render_template("index.html",image_names=image_names)
     else:
         i = 1
         moviePicks ={
@@ -46,7 +47,7 @@ def movies():
             "fourth" : {"" : 0.0},
             "fifth" : {"" : 0.0}
         }
-        firstMovie = secondMovie = thirdMovie = fourthMovie = fifthMovie = "No movie prediction"
+        firstMovie = secondMovie = thirdMovie = fourthMovie = fifthMovie = "None"
         for movie, value in sorted(movies.items(), key = lambda x: x[1],reverse=True):
             if i == 1:
                 #moviePicks["first"] = {movie : value}
@@ -66,10 +67,9 @@ def movies():
             
             i += 1
 
-        hi = "hi"
-        return render_template("movies.html",movies = movies, firstMovie=firstMovie, secondMovie = secondMovie,thirdMovie = thirdMovie,fourthMovie = fourthMovie, fifthMovie = fifthMovie)
+        return render_template("movies.html",movies = movies, firstMovie=firstMovie, secondMovie = secondMovie,thirdMovie = thirdMovie,fourthMovie = fourthMovie, fifthMovie = fifthMovie,value=value)
 
-@app.route('/movies', methods=['GET', 'POST'])
+@app.route('/movie_info', methods=['GET', 'POST'])
 def movie_info():
     movie_title = request.args.get('type')
     movie_info=dataset.loc[dataset['primaryTitle']==movie_title,['primaryTitle','startYear','genres','averageRating','numVotes','primaryName']]
@@ -95,7 +95,7 @@ def movie_genre_info():
     try:
         r1 = random.randint(0, 100) #TODO: output more than 1 random movie between 0-10
         movie_genre= genreTest
-        movie_info=dataset.loc[dataset['genres']==movie_genre,['primaryTitle','startYear','genres','averageRating','numVotes','primaryName']]
+        movie_info= dataset.loc[dataset['genres']==movie_genre,['primaryTitle','startYear','genres','averageRating','numVotes','primaryName']]
         Name= movie_info['primaryTitle'].values[r1]
         Year = movie_info['startYear'].values[r1]
         Genres= movie_info['genres'].values[r1]
@@ -113,4 +113,5 @@ def movie_genre_info():
   
 
 if __name__ == "__main__":
+    app.config['SECRET_KEY']="123"
     app.run(debug=True)
