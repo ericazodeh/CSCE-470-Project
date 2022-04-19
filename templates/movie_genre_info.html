@@ -31,25 +31,155 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        {{Name}}
+        {{Name0}}
       </div>
       <div class="col">
-        Year : {{Year}}
+        Year : {{Year0}}
       </div>
     </div>
     <div class="row">
       <div class="col">
-        Genre : {{Genres}}
+        Genre : {{Genres0}}
       </div>
       <div class="col">
-        Director : {{Director}}
+        Director : {{Director0}}
       </div>
       <div class="col">
-        Rating : {{Rating}}
+        Rating : {{Rating0}}
       </div>
       <div class="col">
-        Votes : {{Votes}}
+        Votes : {{Votes0}}
+      </div>
+      <div class="col">
+        ----------------------------
       </div>
     </div>
   </div>
+  <!---->
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {{Name1}}
+      </div>
+      <div class="col">
+        Year : {{Year1}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Genre : {{Genres1}}
+      </div>
+      <div class="col">
+        Director : {{Director1}}
+      </div>
+      <div class="col">
+        Rating : {{Rating1}}
+      </div>
+      <div class="col">
+        Votes : {{Votes1}}
+      </div>
+      <div class="col">
+        ----------------------------
+      </div>
+    </div>
+  </div>
+   <!---->
+   <div class="container">
+    <div class="row">
+      <div class="col">
+        {{Name2}}
+      </div>
+      <div class="col">
+        Year : {{Year2}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Genre : {{Genres2}}
+      </div>
+      <div class="col">
+        Director : {{Director2}}
+      </div>
+      <div class="col">
+        Rating : {{Rating2}}
+      </div>
+      <div class="col">
+        Votes : {{Votes2}}
+      </div>
+      <div class="col">
+        ----------------------------
+      </div>
+    </div>
+  </div>
+   <!---->
+   <div class="container">
+    <div class="row">
+      <div class="col">
+        {{Name3}}
+      </div>
+      <div class="col">
+        Year : {{Year3}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Genre : {{Genres3}}
+      </div>
+      <div class="col">
+        Director : {{Director3}}
+      </div>
+      <div class="col">
+        Rating : {{Rating3}}
+      </div>
+      <div class="col">
+        Votes : {{Votes3}}
+      </div>
+      <div class="col">
+        ----------------------------
+      </div>
+    </div>
+  </div>
+   <!---->
+   <div class="container">
+    <div class="row">
+      <div class="col">
+        {{Name4}}
+      </div>
+      <div class="col">
+        Year : {{Year4}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Genre : {{Genres4}}
+      </div>
+      <div class="col">
+        Director : {{Director4}}
+      </div>
+      <div class="col">
+        Rating : {{Rating4}}
+      </div>
+      <div class="col">
+        Votes : {{Votes4}}
+      </div>
+      <div class="col">
+        ----------------------------
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Page {{PageNum}}</h3>
+  <form method="POST">
+          <input name="text3">
+          <input type="submit", name="search", placeholder="What page number?">
+  </form>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+       {{ message }}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 </center>
