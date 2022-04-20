@@ -1,11 +1,8 @@
-from flask import Flask, render_template,url_for, request, redirect, jsonify,flash, Markup
-import requests
-import json
-import csv
+from flask import Flask, render_template, request, flash, Markup
+
 import KNN_Predict
 import pickle
 import os
-import random
 # import data_preprocess
 currentGenre=" "
 page=0
