@@ -3,13 +3,18 @@ from flask import Flask, render_template, request, flash, Markup
 import KNN_Predict
 import pickle
 import os
+import secrets
+
+secret = secrets.token_urlsafe(32)
+
+
 # import data_preprocess
 currentGenre=" "
 page=0
 
 print("Running")
 app = Flask(__name__)
-
+app.secret_key = secret
 with open('data/training_pkl', 'rb') as t:
         training_vectors= pickle.load(t)
 
