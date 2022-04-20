@@ -30,7 +30,6 @@ certifi==2020.12.5
 cffi==1.14.0
 chardet==4.0.0
 click==7.1.2
-cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1594141588948/work
 clyent==1.2.2
 colorama==0.4.3
 colorcet==2.0.6
