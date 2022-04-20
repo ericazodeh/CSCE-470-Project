@@ -39,7 +39,7 @@ def movies():
     if len(movies)==0:
         message = Markup("<h1>This Movie was not found!</h1>")
         flash(message)
-        image_names = os.listdir('static\Moviepictures')
+        image_names = os.listdir('static/Moviepictures')
         return render_template("index.html",image_names=image_names)
     else:
         i = 1
