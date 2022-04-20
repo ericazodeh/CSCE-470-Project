@@ -21,7 +21,7 @@ with open('data/dataset_pkl', 'rb') as d:
 
 @app.route("/")
 def index():
-    image_names = os.listdir('static\Moviepictures')
+    image_names = os.listdir('static/Moviepictures')
     return render_template("index.html",image_names=image_names)
 
 @app.route('/', methods=['GET','POST'])
