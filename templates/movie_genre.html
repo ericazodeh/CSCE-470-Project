@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel = "stylesheet"href="../static/style.css" />    
-<title></title>       
-      
-</head>
-          <body BGCOLOR = "WHITE" TEXT = " BLACK">    
-            <div class="nav">
-  
-                <ul>
-                  <tr>
-                    <td align="left"><h3><font color="white">Movie Night Fanatics</h1></font></h3></td>
-                  </tr>
-                  
-                  <li><a href="{{url_for('index')}}">Home</a></li>
-                 <!-- <li><a href="{{url_for('movies')}}">Movies</a></li>
-                  <li><a href="{{url_for('movie_info')}}">Movie Information</a></li> -->
-                  <li><a href="{{url_for('movie_genre')}}">Movie Genre</a></li> 
-                  <li><a href="{{url_for('movie_genre_info')}}">Movie Genre info</a></li> 
-                  <li><a href="{{url_for('movie_info')}}">Movie info</a></li> 
-                  <li><a href="{{url_for('movies')}}">Movies </a></li> 
-                 
-                </ul>
-              </div> 
-              
-              <span style = "padding-left:400px"></span></span>
 
-              <hr align="center" width="60%">         
-           
-<center>
+<head>
+  <link rel="stylesheet" href="../static/style.css" />
+  <title></title>
+
+</head>
+
+<body BGCOLOR="WHITE" TEXT=" BLACK">
+  <div class="nav">
+
+    <ul>
+      <tr>
+        <td align="left">
+          <h3>
+            <font color="white">Movie Night Fanatics</h1>
+            </font>
+          </h3>
+        </td>
+      </tr>
+
+      <li><a href="{{url_for('index')}}">Home</a></li>
+      <!-- <li><a href="{{url_for('movies')}}">Movies</a></li>
+      <li><a href="{{url_for('movie_info')}}">Movie Information</a></li> -->
+      <li><a href="{{url_for('movie_genre')}}">Movie Genre</a></li>
+      <li><a href="{{url_for('movie_genre_info')}}">Movie Genre info</a></li>
+      <li><a href="{{url_for('movie_info')}}">Movie info</a></li>
+      <li><a href="{{url_for('movies')}}">Movies </a></li>
+
+    </ul>
+  </div>
+
+  <span style="padding-left:400px"></span></span>
+
+  <hr align="center" width="60%">
+
+  <center>
     <h3>Explore Movie Genres</h3>
     <form method="POST">
-            <input name="text2">
-            <input type="submit", name="search", placeholder="What genre are you looking for?">
+      <input name="text2">
+      <input type="submit" , name="search" , placeholder="What genre are you looking for?">
     </form>
-  {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
     {% if messages %}
-      {% for message in messages %}
-         {{ message }}
-      {% endfor %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
     {% endif %}
-  {% endwith %}
-</center>
+    {% endwith %}
+  </center>
 
 
 
 
-<button onclick="mydarkmodeFunc()">Dark mode</button>
-<script>
+  <button onclick="mydarkmodeFunc()">Dark mode</button>
+  <script>
     //alert('{{ firstMovie }}');
-    
-	//alert('Hello, ' + name);
-    function mydarkmodeFunc() {
-   var item = document.body;
-   item.classList.toggle("dark-mode");
-}
 
-</script>
+    //alert('Hello, ' + name);
+    function mydarkmodeFunc() {
+      var item = document.body;
+      item.classList.toggle("dark-mode");
+    }
+
+  </script>
 
 </body>
+
 </html>

@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel = "stylesheet"href="../static/style.css" />
-<title>Movie Genre</title>
+  <link rel="stylesheet" href="../static/style.css" />
+  <title>Movie Genre</title>
 </head>
 
-        <div class="nav">
-   
-         <ul>
-           <tr>
-             <td align="left"><h3><font color="white">Movie Night Fanatics</h1></font></h3></td>
-           </tr>
-           
-           <li><a href="{{url_for('index')}}">Home</a></li>
-                 <!-- <li><a href="{{url_for('movies')}}">Movies</a></li>
-                  <li><a href="{{url_for('movie_info')}}">Movie Information</a></li> -->
-                  <li><a href="{{url_for('movie_genre')}}">Movie Genre</a></li>                 
-                  <li><a href="{{url_for('movie_genre_info')}}">Movie Genre info</a></li> 
-                  <li><a href="{{url_for('movie_info')}}">Movie info</a></li> 
-                  <li><a href="{{url_for('movies')}}">Movies </a></li> 
-          
-         </ul>
-       </div> 
-       
-       <span style = "padding-left:400px"></span></span>
-       <center><p5>{{Genres}}</p5></center>
-       <hr align="center" width="60%">         
+<div class="nav">
+
+  <ul>
+    <tr>
+      <td align="left">
+        <h3>
+          <font color="white">Movie Night Fanatics</h1>
+          </font>
+        </h3>
+      </td>
+    </tr>
+
+    <li><a href="{{url_for('index')}}">Home</a></li>
+    <!-- <li><a href="{{url_for('movies')}}">Movies</a></li>
+    <li><a href="{{url_for('movie_info')}}">Movie Information</a></li> -->
+    <li><a href="{{url_for('movie_genre')}}">Movie Genre</a></li>
+    <li><a href="{{url_for('movie_genre_info')}}">Movie Genre info</a></li>
+    <li><a href="{{url_for('movie_info')}}">Movie info</a></li>
+    <li><a href="{{url_for('movies')}}">Movies </a></li>
+
+  </ul>
+</div>
+
+<span style="padding-left:400px"></span></span>
 <center>
-  
+  <p5>{{Genres}}</p5>
+</center>
+<hr align="center" width="60%">
+<center>
+
   <div class="container">
     <div class="row">
       <div class="col">
@@ -83,8 +91,8 @@
       </div>
     </div>
   </div>
-   <!---->
-   <div class="container">
+  <!---->
+  <div class="container">
     <div class="row">
       <div class="col">
         {{Name2}}
@@ -111,8 +119,8 @@
       </div>
     </div>
   </div>
-   <!---->
-   <div class="container">
+  <!---->
+  <div class="container">
     <div class="row">
       <div class="col">
         {{Name3}}
@@ -139,8 +147,8 @@
       </div>
     </div>
   </div>
-   <!---->
-   <div class="container">
+  <!---->
+  <div class="container">
     <div class="row">
       <div class="col">
         {{Name4}}
@@ -171,15 +179,15 @@
 
   <h3>Page {{PageNum}}</h3>
   <form method="POST">
-          <input name="text3">
-          <input type="submit", name="search", placeholder="What page number?">
+    <input name="text3">
+    <input type="submit" , name="search" , placeholder="What page number?">
   </form>
-{% with messages = get_flashed_messages() %}
+  {% with messages = get_flashed_messages() %}
   {% if messages %}
-    {% for message in messages %}
-       {{ message }}
-    {% endfor %}
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
   {% endif %}
-{% endwith %}
+  {% endwith %}
 
 </center>
