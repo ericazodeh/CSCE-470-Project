@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="stylesheet" href="../static/style.css" />
+  <title>Title of the Movies</title>
+</head>
+
+<div class="nav">
+  <ul>
+    <tr>
+      <td align="left">
+        <h3>
+          <font color="white">Movie Night Fanatics</h1>
+          </font>
+        </h3>
+      </td>
+    </tr>
+
+    <li><a href="{{url_for('index')}}">Home</a></li>
+    <!--   <li><a href="{{url_for('movies')}}">Movies</a></li>
+    <li><a href="{{url_for('movie_info')}}">Movie Information</a></li> -->
+    <li><a href="{{url_for('movie_genre')}}">Movie Genre</a></li>
+    <li><a href="{{url_for('movie_genre_info')}}">Movie Genre info</a></li>
+    <li><a href="{{url_for('movie_info')}}">Movie info</a></li>
+    <li><a href="{{url_for('movies')}}">Movies </a></li>
+
+  </ul>
+</div>
+
+<span style="padding-left:400px"></span></span>
+
+<hr align="center" width="60%">
+<center>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
+        <th scope="col">Movie Title</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% if firstMovie !='None' %}
+      <tr>
+        <th scope="row">1</th>
+        <th scope="row"> </th>
+        <td><A HREF="{{ url_for('movie_info',type=firstMovie) }}">{{ firstMovie }}</A></td>
+      </tr>
+
+      {% endif %}
+      {% if secondMovie !='None' %}
+
+      <tr>
+        <th scope="row">2</th>
+        <th scope="row"> </th>
+        <td><A HREF="{{ url_for('movie_info',type=secondMovie) }}">{{ secondMovie }}</A></td>
+      </tr>
+
+      {% endif %}
+      {% if thirdMovie !='None' %}
+
+      <tr>
+        <th scope="row">3</th>
+        <th scope="row"> </th>
+        <td><A HREF="{{ url_for('movie_info',type=thirdMovie) }}">{{ thirdMovie }} </A></td>
+      </tr>
+
+      {% endif %}
+      {% if fourthMovie !='None' %}
+
+      <tr>
+        <th scope="row">4</th>
+        <th scope="row"> </th>
+        <td><A HREF="{{ url_for('movie_info',type=fourthMovie) }}">{{ fourthMovie }} </A></td>
+      </tr>
+
+      {% endif %}
+      {% if fifthMovie !='None' %}
+
+      <tr>
+        <th scope="row">5</th>
+        <th scope="row"> </th>
+        <td><A HREF="{{ url_for('movie_info',type=fifthMovie) }}">{{ fifthMovie }} </A></td>
+      </tr>
+
+      {% endif %}
+
+    </tbody>
+  </table>
+</center>
+
+<!-- <center>
+    <h3>Get director information from these movies (copy & paste a movie name into here)</h3>
+    <form method="POST">
+    <input name="text">
+    <input type="submit">
+    </form>
+  </center> -->
+
+<script>
+  //alertv
+  //alert('Hello, ' + name);
+</script>
+
+</body>
+</html>

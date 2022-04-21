@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../static/style.css" />
+  <link href="index.css" rel="stylesheet" type="text/css"/>
+  <title></title>
+
+</head>
+
+<body BGCOLOR="WHITE" TEXT=" BLACK">
+
+  <div class="nav">
+
+    <ul>
+      <tr>
+        <td align="left">
+          <h3>
+            <font color="white">Movie Night Fanatics</h1>
+            </font>
+          </h3>
+        </td>
+      </tr>
+
+      <nav>
+        <ul>
+
+          <li><a href="{{url_for('index')}}">Home</a></li>
+          <!--  <li><a href="{{url_for('movies')}}">Movies</a></li>
+          <li><a href="{{url_for('movie_info')}}">Movie Information</a></li> -->
+          <li><a href="{{url_for('movie_genre')}}">Movie Genre</a></li>
+          <li><a href="{{url_for('movie_genre_info')}}">Movie Genre info</a></li>
+          <li><a href="{{url_for('movie_info')}}">Movie info</a></li>
+          <li><a href="{{url_for('movies')}}">Movie </a></li>
+
+        </ul>
+      </nav>
+    </ul>
+  </div>
+
+  <span style="padding-left:400px"></span></span>
+
+  <hr align="center" width="60%">
+
+  <center>
+
+    <h3>Explore Movies</h3>
+    <form method="POST">
+      <input name="text">
+      <input type="submit" , name="search" , placeholder="What are you looking for?">
+
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div id="successMessage" ,class="alert alert-success alert-dismissible fade show" role="alert">
+      <span>{{ message }}</span>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <script
+      type="text/javascript">window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); </script>
+
+  </center>
+  <div class="row">
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[0]) }}" ,width="100%" , height="100%">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[1]) }}" ,width="100%" , height="100%">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[2]) }}" ,width="100%" ,height="100%">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[3]) }}" ,width="100%" ,height="100%">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[4]) }}" ,width="100%" ,height="100%">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[5]) }}" ,width="100%" ,height="100%">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[6]) }}" ,width="100%" ,height="100%">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='Moviepictures/' + image_names[7]) }}" , width="100%" ,height="100%">
+    </div>
+  </div>
+
+  <button onclick="mydarkmodeFunc()">Dark mode</button>
+  <script>
+    //alert('{{ firstMovie }}');
+
+    //alert('Hello, ' + name);
+    function mydarkmodeFunc() {
+      var item = document.body;
+      item.classList.toggle("dark-mode");
+    }
+
+  </script>
+
+</body>
+
+</html>
