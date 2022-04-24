@@ -176,12 +176,7 @@
     </div>
   </div>
 
-
-  <h3>Page {{PageNum}}</h3>
-  <form method="POST">
-    <input name="text3">
-    <input type="submit" , name="search" , placeholder="What page number?">
-  </form>
+  <a href="{{ url_for('movie_genre') }}">Try Again</a>
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   {% for message in messages %}
